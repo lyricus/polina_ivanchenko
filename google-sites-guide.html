@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Sites — Инструкция по сборке</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f5f5f5; color: #1a1a1a; margin: 0; padding: 0; }
+    .top-bar { background: #1B4332; color: #fff; padding: 1rem 2rem; font-size: 0.9rem; }
+    .top-bar strong { color: #E9C46A; }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+    .subtitle { color: #555; margin-bottom: 2.5rem; }
+
+    /* Progress nav */
+    .page-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .page-tab { padding: 0.5rem 1.2rem; border-radius: 50px; background: #ddd; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: none; }
+    .page-tab.active { background: #1B4332; color: #fff; }
+
+    /* Section blocks */
+    .block {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .block-header {
+      background: #1B4332;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .block-header .step-badge {
+      background: #E9C46A;
+      color: #1B4332;
+      border-radius: 50%;
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .block-header .gs-type {
+      margin-left: auto;
+      background: rgba(255,255,255,0.2);
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .block-body { padding: 1.25rem; }
+    .block-body label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin: 1rem 0 0.35rem;
+    }
+    .block-body label:first-child { margin-top: 0; }
+    .copy-box {
+      background: #f8f8f8;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      position: relative;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem; right: 0.5rem;
+      background: #1B4332;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.72rem;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .copy-btn:hover { opacity: 1; }
+    .copy-wrap { position: relative; }
+    .note {
+      background: #fffbea;
+      border-left: 3px solid #E9C46A;
+      padding: 0.75rem 1rem;
+      font-size: 0.84rem;
+      color: #7a5c00;
+      border-radius: 0 8px 8px 0;
+      margin-top: 0.75rem;
+    }
+    .info {
+      background: #f0fdf4;
+      border-left: 3px solid #52B788;
+      padding: 0.75rem 1rem;
+      font-size: 0.84rem;
+      color: #276749;
+      border-radius: 0 8px 8px 0;
+      margin-top: 0.75rem;
+    }
+    .how-to {
+      background: #eef2ff;
+      border-left: 3px solid #6366f1;
+      padding: 0.75rem 1rem;
+      font-size: 0.84rem;
+      color: #3730a3;
+      border-radius: 0 8px 8px 0;
+      margin-top: 0.75rem;
+    }
+    ol.steps-list { margin: 0.5rem 0 0 1.25rem; padding: 0; }
+    ol.steps-list li { margin-bottom: 0.35rem; font-size: 0.84rem; }
+    .img-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .img-url-chip {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+      word-break: break-all;
+    }
+    .page-divider {
+      display: none;
+      border-top: 2px dashed #1B4332;
+      margin: 2rem 0;
+      padding-top: 1.5rem;
+    }
+    .page-divider.visible { display: block; }
+    .page-title-bar {
+      background: linear-gradient(135deg, #1B4332, #2D6A4F);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .page-title-bar h2 { color: #fff; margin: 0; font-size: 1.15rem; }
+    .page-title-bar p { color: rgba(255,255,255,0.7); margin: 0.25rem 0 0; font-size: 0.85rem; }
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      border: 2px solid transparent;
+    }
+    .swatch-dot { width: 14px; height: 14px; border-radius: 50%; }
+    .design-box { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <strong>Cultural Bridge Ambassadors: Ljubljana Edition</strong>
+  — Инструкция для сборки в Google Sites
+  &nbsp;|&nbsp; GitHub Pages версия: <a href="https://lyricus.github.io/polina_ivanchenko/" style="color:#E9C46A;" target="_blank">lyricus.github.io/polina_ivanchenko</a>
+</div>
+
+<div class="container">
+  <h1>Инструкция: собираем в Google Sites</h1>
+  <p class="subtitle">Открой Google Sites в соседней вкладке и следуй шагам по порядку. Весь текст можно скопировать кнопкой «Copy».</p>
+
+  <!-- ═══════ DESIGN SYSTEM ═══════ -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">0</span>
+      Настройки оформления — сделай ПЕРВЫМ
+      <span class="gs-type">Themes & Fonts</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Где найти:</strong> В Google Sites → кнопка <strong>Themes</strong> (правая панель, иконка кисточки)
+      </div>
+
+      <label>Тема</label>
+      <div class="copy-box">Выбери тему <strong>Simple</strong> или <strong>Impression</strong> — они самые нейтральные для кастомизации</div>
+
+      <label>Цвета (Custom)</label>
+      <div class="design-box">
+        <div class="color-swatch" style="background:#1B4332;color:#fff;border-color:#1B4332;">
+          <div class="swatch-dot" style="background:#fff;"></div> Основной #1B4332
+        </div>
+        <div class="color-swatch" style="background:#E9C46A;color:#1B4332;border-color:#E9C46A;">
+          <div class="swatch-dot" style="background:#1B4332;"></div> Акцент #E9C46A
+        </div>
+        <div class="color-swatch" style="background:#FEFAE0;color:#1B4332;border-color:#ccc;">
+          <div class="swatch-dot" style="background:#1B4332;"></div> Фон #FEFAE0
+        </div>
+      </div>
+
+      <label>Шрифты</label>
+      <div class="copy-box">Заголовки: <strong>Playfair Display</strong>
+Текст: <strong>Poppins</strong>
+(В Google Sites → Themes → Fonts → выбери из списка)</div>
+
+      <div class="note">Google Sites не поддерживает произвольные CSS — используй доступные в теме цвета и шрифты как ближайшие к оригиналу.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 1 — HOME
+  ═══════════════════════════════════════ -->
+  <div class="page-title-bar">
+    <div>
+      <h2>📄 Страница 1 — Home</h2>
+      <p>В Google Sites: New page → назови «Home»</p>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">1</span>
+      Hero Banner — полноэкранный блок
+      <span class="gs-type">Image Banner</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Image Banner → Upload или вставь URL ниже → затем добавь текст поверх
+      </div>
+      <label>Изображение для Banner</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="hero-img">https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80</div>
+        <button class="copy-btn" onclick="copyText('hero-img')">Copy</button>
+      </div>
+      <label>Заголовок (Heading)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="hero-h1">Welcome to Ljubljana</div>
+        <button class="copy-btn" onclick="copyText('hero-h1')">Copy</button>
+      </div>
+      <label>Подзаголовок</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="hero-sub">Your new city is greener, smaller, and kinder than you might expect.
+This guide was built by students — for students — to help you settle in, explore, and feel at home.</div>
+        <button class="copy-btn" onclick="copyText('hero-sub')">Copy</button>
+      </div>
+      <label>Кнопка (Button)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="hero-btn">Explore the City →</div>
+        <button class="copy-btn" onclick="copyText('hero-btn')">Copy</button>
+      </div>
+      <div class="note">После добавления Banner: кликни на баннер → "Full width" → Cover → поставь тёмный overlay (Dark). Кнопку добавь через Insert → Button → ссылка на страницу Explore.</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">2</span>
+      Цифры-факты (Stats Strip)
+      <span class="gs-type">2 Columns</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → 2 Columns (или 4 Columns) → в каждой ячейке вставь Text
+      </div>
+      <label>Содержимое (4 блока)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="stats">280K — Residents in Ljubljana
+40+ — Coffee shops in the city center
+4 — Universities welcoming students
+15 min — Walk across the old town</div>
+        <button class="copy-btn" onclick="copyText('stats')">Copy</button>
+      </div>
+      <div class="note">Каждую цифру сделай Heading 2, описание под ней — обычным текстом. Установи цвет секции в тёмно-зелёный (#1B4332).</div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">3</span>
+      About the Project
+      <span class="gs-type">Text + Image</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → 2 Columns → левая: Image, правая: Text Block
+      </div>
+      <label>Заголовок</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="about-h">You are not alone in this city</div>
+        <button class="copy-btn" onclick="copyText('about-h')">Copy</button>
+      </div>
+      <label>Текст (3 абзаца)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="about-text">Cultural Bridge Ambassadors is a student-led initiative connecting Ukrainian newcomers with local Slovenian students in Ljubljana. We believe that the best way to feel at home is through shared experiences, honest information, and genuine friendship.
+
+This guide was created by young people who have gone through the same questions you are asking right now: Where do I get a SIM card? Which coffee shop has the fastest Wi-Fi? How do I use the Urbana bus card? We have answered all of these — and more.
+
+Whether you arrived last week or last year, this is your starting point. Explore the city, reach out, and let us help you build your Ljubljana story.</div>
+        <button class="copy-btn" onclick="copyText('about-text')">Copy</button>
+      </div>
+      <label>Фото для левой колонки</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="about-img">https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80</div>
+        <button class="copy-btn" onclick="copyText('about-img')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Tips -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">4</span>
+      Quick Tips — первая неделя
+      <span class="gs-type">4 Columns</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → 3 Columns → добавь ещё 1 (итого 4). В каждой: Image icon + Heading 3 + Text
+      </div>
+      <label>Блок 1</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="tip1">📱 Get a SIM card
+Telekom Slovenia or A1 — shops in the city center. Bring your passport.</div>
+        <button class="copy-btn" onclick="copyText('tip1')">Copy</button>
+      </div>
+      <label>Блок 2</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="tip2">🚌 Buy an Urbana card
+The green rechargeable card for all buses. Get it at Urbanija kiosks or LPP website.</div>
+        <button class="copy-btn" onclick="copyText('tip2')">Copy</button>
+      </div>
+      <label>Блок 3</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="tip3">🏥 Register at a doctor
+Choose a personal physician (osebni zdravnik) within the first month of arrival.</div>
+        <button class="copy-btn" onclick="copyText('tip3')">Copy</button>
+      </div>
+      <label>Блок 4</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="tip4">📋 Report your address
+Register your temporary residence at the Administrative Unit (Upravna enota).</div>
+        <button class="copy-btn" onclick="copyText('tip4')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 2 — EXPLORE
+  ═══════════════════════════════════════ -->
+  <div class="page-title-bar" style="margin-top:2.5rem;">
+    <div>
+      <h2>📄 Страница 2 — Explore</h2>
+      <p>В Google Sites: New page → «Explore Ljubljana»</p>
+    </div>
+  </div>
+
+  <!-- Coffee -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">5</span>
+      ☕ Best Coffee Spots (3 карточки)
+      <span class="gs-type">3 Columns</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → 3 Columns. В каждой колонке: Image (ссылки ниже) → Heading 3 → Text
+      </div>
+      <label>Фото для карточек</label>
+      <div class="img-row">
+        <div class="img-url-chip">Črno Zrno:<br>unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80</div>
+        <div class="img-url-chip">TOZD:<br>unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=600&q=80</div>
+        <div class="img-url-chip">Cafetino:<br>unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80</div>
+      </div>
+
+      <label>Карточка 1 — Črno Zrno</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="coffee1">Črno Zrno
+
+Translated as "Black Grain," this cosy specialty café near the Faculty of Arts is a student institution. Superb espresso, friendly baristas who remember your order, and the best croissants in the city. Free Wi-Fi, plenty of plug sockets, and a relaxed vibe that welcomes long study sessions.
+
+📍 Rimska cesta 4 · ⏰ Mon–Fri 7:30–21:00 · 💶 Espresso ~€2.10 · 📶 Free Wi-Fi</div>
+        <button class="copy-btn" onclick="copyText('coffee1')">Copy</button>
+      </div>
+
+      <label>Карточка 2 — TOZD</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="coffee2">TOZD
+
+Located in the Metelkova cultural district, TOZD is more than a café — it is a community hub with live music evenings, art exhibitions, and some of the most interesting people in Ljubljana. Excellent natural wines alongside great coffee.
+
+📍 Masarykova ulica 24 · ⏰ Tue–Sun 10:00–01:00 · 💶 Coffee ~€2.50 · 🎵 Live events weekly</div>
+        <button class="copy-btn" onclick="copyText('coffee2')">Copy</button>
+      </div>
+
+      <label>Карточка 3 — Cafetino</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="coffee3">Cafetino
+
+Perched right on the Ljubljanica riverbank, Cafetino is the place for an afternoon coffee with a view. Colourful chairs spill onto the terrace in spring and summer — reserve a spot early on sunny days. Great for meeting new friends and watching the city go by.
+
+📍 Gallusovo nabrežje 27 · ⏰ Daily 8:00–22:00 · 💶 Cappuccino ~€2.80 · ☀️ River terrace</div>
+        <button class="copy-btn" onclick="copyText('coffee3')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Places -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">6</span>
+      🗺 Must-See Places (5 мест)
+      <span class="gs-type">Image Carousel + Text</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Вариант А (лучше):</strong> Insert → Image Carousel → добавь 5 фото → под каждым подпись<br>
+        <strong>Вариант Б:</strong> Insert → 2 Columns → Image слева, текст справа (по одному на каждое место)
+      </div>
+      <label>Фото и описания (5 мест)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="places">1. Ljubljana Castle (Ljubljanski Grad)
+Фото: unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&q=80
+The medieval castle crowning the hill at the heart of the city. Take the funicular (€4 return, free with student card) or hike up in 15 minutes. Panoramic views of the city and the Alps. Free entry to grounds, paid for tower.
+
+2. Tivoli Park
+Фото: unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80
+Ljubljana's green lung — perfect for running, picnics, and quiet walks. Free outdoor gym equipment, open 24/7.
+
+3. Triple Bridge (Tromostovje)
+Фото: unsplash.com/photo-1516483638261-f4dbaf036963?w=700&q=80
+The iconic symbol of Ljubljana — three pedestrian bridges crossing the Ljubljanica, designed by architect Jože Plečnik.
+
+4. Metelkova Mesto
+Фото: unsplash.com/photo-1571886932029-0c63f9a0cb01?w=700&q=80
+Europe's most creative autonomous cultural zone. Free to enter, open to everyone. Bars, music venues, galleries, and community spaces.
+
+5. Open-Air Market (Tržnica)
+Фото: unsplash.com/photo-1506617564039-2f3b650b7010?w=700&q=80
+Fresh local produce by the Ljubljanica River every morning, Monday–Saturday. The heart of local daily life.</div>
+        <button class="copy-btn" onclick="copyText('places')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transport -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">7</span>
+      🚲 Getting Around (транспорт)
+      <span class="gs-type">Text + Collapsible List</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Collapsible text (аккордеон) — по одному на каждый вид транспорта.<br>
+        Или просто Insert → Text Block с заголовками Heading 3
+      </div>
+      <label>Содержимое</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="transport">🚌 Bus (LPP)
+All buses are modern and air-conditioned. You cannot pay with cash on board — use an Urbana card or the LPP mobile app.
+• Single ride: €1.30 with Urbana
+• Day pass: €3.50
+• Monthly student pass: ~€23
+• Real-time info: lpp.si or Moovit app
+
+💳 Urbana Card
+The rechargeable smart card for all buses, the funicular, and parking. Get yours at any Urbanija kiosk (in LPP bus shelters) or at Slovenska 56. The card itself costs €2.
+• Top up: kiosks, app, or online
+• Register your card to protect your balance
+• Student discount requires enrolment proof
+
+🚲 BicikeLJ Bikes
+The city's public bike-sharing system with 36 stations. The first hour of every ride is FREE.
+• Annual subscription: €9/year
+• Register at bicikelj.si
+
+🚶 Walking
+Ljubljana's old town is entirely car-free. From the central train station to the castle hill is only 15 minutes on foot. Download Maps.me for offline navigation.
+
+🚆 Trains & Intercity
+To Bled: 1h · To Piran: 2h · To Maribor: 2h
+Student 50% discount with ISIC or enrolment proof. Book at potniski.sz.si
+
+🚕 Hopin App (Taxi)
+Use Hopin (local) or Bolt for fair-priced taxis. Avoid unmarked taxis at the station. Average city trip: €5–8.</div>
+        <button class="copy-btn" onclick="copyText('transport')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Embed -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">8</span>
+      📍 Google Map — вставка
+      <span class="gs-type">Insert → Map</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Map → в поиске напиши "Ljubljana" → выбери → Insert<br>
+        Карта встроится нативно — это лучший способ, не нужен iframe!
+      </div>
+      <div class="info">В Google Sites есть нативный Map блок — он работает лучше iframe. Поиск по названию: <strong>Ljubljana Old Town</strong> или добавь несколько точек вручную через Google My Maps → затем вставь через Insert → Map.</div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">9</span>
+      📸 Photo Gallery (карусель)
+      <span class="gs-type">Insert → Image Carousel</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Image Carousel → добавь фото по ссылкам ниже (через Google Images search или скачай+загрузи)
+      </div>
+      <label>URL фотографий (6 штук) — открой каждую и скачай</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="gallery-urls">1. Ljubljanica River:
+https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80
+
+2. Ljubljana Castle:
+https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&q=80
+
+3. Triple Bridge:
+https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1200&q=80
+
+4. Tivoli Park:
+https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80
+
+5. Open Market:
+https://images.unsplash.com/photo-1571886932029-0c63f9a0cb01?w=1200&q=80
+
+6. Coffee culture:
+https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80</div>
+        <button class="copy-btn" onclick="copyText('gallery-urls')">Copy</button>
+      </div>
+      <div class="note">Google Sites принимает только загруженные файлы в карусели. Открой каждую ссылку в браузере → правой кнопкой → "Сохранить изображение" → загрузи в карусель.</div>
+    </div>
+  </div>
+
+  <!-- YouTube -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">10</span>
+      🎬 YouTube Video
+      <span class="gs-type">Insert → YouTube</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → YouTube → вставь URL видео
+      </div>
+      <label>URL видео (Ljubljana City Guide)</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="yt-url">https://www.youtube.com/watch?v=FHTSjLKOsEM</div>
+        <button class="copy-btn" onclick="copyText('yt-url')">Copy</button>
+      </div>
+      <label>Заголовок секции</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="yt-h">A Day in Ljubljana</div>
+        <button class="copy-btn" onclick="copyText('yt-h')">Copy</button>
+      </div>
+      <label>Описание</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="yt-text">Follow a student ambassador through a typical Ljubljana day — from morning coffee on the riverside to an evening at Metelkova. Shot and edited entirely by Cultural Bridge student ambassadors.</div>
+        <button class="copy-btn" onclick="copyText('yt-text')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 3 — TIPS
+  ═══════════════════════════════════════ -->
+  <div class="page-title-bar" style="margin-top:2.5rem;">
+    <div>
+      <h2>📄 Страница 3 — Tips</h2>
+      <p>В Google Sites: New page → «Practical Tips»</p>
+    </div>
+  </div>
+
+  <!-- First Week -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">11</span>
+      📋 First Week Checklist
+      <span class="gs-type">Numbered List</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Text Block → выбери стиль Numbered List
+      </div>
+      <label>Содержимое</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="first-week">Your First Week in Ljubljana — Do These 5 Things
+
+1. Register your temporary residence
+Go to the Administrative Unit (Upravna enota Ljubljana) at Tobačna ulica 5 with your passport and proof of address. Opens Mon–Fri 8:00–13:00.
+
+2. Get a Slovenian SIM card
+Telekom Slovenia (Trg republike 3) or A1 (Nazorjeva 2). Bring your passport. ~€15/month for 15 GB data.
+
+3. Open a bank account
+N26 or Revolut (app-based, no Slovenian address needed) are easiest. For local account: NLB or SKB banks.
+
+4. Choose a personal physician (osebni zdravnik)
+Find available doctors at zzzs.si. Call or visit the practice — bring health insurance card and residence proof.
+
+5. Get your student card and Urbana card
+Activate your student card for subsidised meals (~€3.50/meal at 40+ restaurants). Urbana bus card: €2 at any LPP kiosk.</div>
+        <button class="copy-btn" onclick="copyText('first-week')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Table -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">12</span>
+      🗣 Slovenian Phrases Table
+      <span class="gs-type">Insert → Table</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Table → выбери 3 колонки × 13 строк → вставь содержимое
+      </div>
+      <label>Содержимое таблицы</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="lang-table">Slovenian | Ukrainian / Meaning | Pronunciation
+Zdravo / Živjo | Привіт / Hello (informal) | "ZDRA-vo" / "ZHEE-vyo"
+Dober dan | Доброго дня / Good day | "DOH-ber dahn"
+Hvala | Дякую / Thank you | "HVAH-lah"
+Prosim | Будь ласка / Please | "PROH-seem"
+Oprostite | Вибачте / Excuse me | "oh-PRO-stee-teh"
+Koliko stane? | Скільки коштує? | "KOH-lee-koh STAH-neh"
+Kje je ...? | Де знаходиться ...? | "kyeh yeh"
+Ne razumem | Я не розумію | "neh rah-ZOO-mem"
+Govorite angleško? | Ви говорите англійською? | "go-VOH-ree-teh AHN-glesh-koh"
+Nasvidenje | До побачення / Goodbye | "nahs-VEE-den-yeh"
+Ena kava, prosim | Одну каву, будь ласка | "EH-nah KAH-vah PRO-seem"
+Živeli! | Будьмо! / Cheers! | "ZHEE-ve-lee"</div>
+        <button class="copy-btn" onclick="copyText('lang-table')">Copy</button>
+      </div>
+      <div class="info">Заголовки первой строки выдели жирным (Ctrl+B). В Google Sites таблица автоматически получает базовое форматирование.</div>
+    </div>
+  </div>
+
+  <!-- Emergency Contacts -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">13</span>
+      🚨 Emergency Contacts
+      <span class="gs-type">Text Block</span>
+    </div>
+    <div class="block-body">
+      <div class="copy-wrap">
+        <div class="copy-box" id="emergency">🚑 Medical Emergency: 112 (European emergency number)
+24h Emergency Centre: +386 1 252 27 50
+
+🚔 Police: 113
+Ljubljana Police HQ: +386 1 478 71 00
+
+🏛 Ukrainian Embassy in Slovenia
+Dunajska cesta 100, 1000 Ljubljana
+Phone: +386 1 280 85 95 · Email: emb_si@mfa.gov.ua
+
+🤝 Support for Ukrainian newcomers
+Slovenska filantropija: +386 1 439 11 70
+UNHCR Slovenia: +386 1 587 35 80
+Karitas: 031 700 100
+
+🧠 Mental Health & Crisis
+24h Samarijan crisis line: 116 123 (free)
+SOS violence helpline: 080 11 22 33 (free)
+Online Ukrainian-language therapy: uahelp.me</div>
+        <button class="copy-btn" onclick="copyText('emergency')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Form -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">14</span>
+      ✍️ Google Form — обратная связь
+      <span class="gs-type">Insert → Forms</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Самый простой способ:</strong> Insert → Forms → выбери свою форму из Google Drive (если она там есть).<br>
+        Форма встраивается нативно — не нужен embed код!
+      </div>
+      <div class="info">
+        <strong>Создай форму заранее:</strong>
+        <ol class="steps-list">
+          <li>Открой forms.google.com → создай новую форму</li>
+          <li>Добавь вопросы: имя, email, вопрос/комментарий, "Was this helpful?" (Yes/No)</li>
+          <li>Сохрани форму в Google Drive</li>
+          <li>В Google Sites: Insert → Forms → выбери форму из Drive</li>
+        </ol>
+      </div>
+      <label>Вопросы для формы</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="form-questions">1. Your name (Short answer)
+2. Your email (Short answer)
+3. Are you a... (Multiple choice)
+   - Ukrainian student
+   - Slovenian student
+   - Other
+
+4. Your question or message (Paragraph)
+
+5. How did you find this guide? (Multiple choice)
+   - Instagram
+   - TikTok
+   - Telegram
+   - Friend recommended it
+   - University
+
+6. Would you like to join the Cultural Bridge programme? (Yes / No)</div>
+        <button class="copy-btn" onclick="copyText('form-questions')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">15</span>
+      Social Media Links
+      <span class="gs-type">Button × 3</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> Insert → Button → 3 кнопки рядом (Instagram, Telegram, TikTok)
+      </div>
+      <label>Тексты кнопок</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="social-btns">📸 Follow on Instagram
+✈️ Join Telegram Channel
+🎵 Watch on TikTok</div>
+        <button class="copy-btn" onclick="copyText('social-btns')">Copy</button>
+      </div>
+      <div class="note">В каждую кнопку поставь ссылку на соответствующий аккаунт. Цвет кнопок выбери в соответствии с темой сайта.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="block">
+    <div class="block-header">
+      <span class="step-badge">16</span>
+      Footer (подвал)
+      <span class="gs-type">Site Footer settings</span>
+    </div>
+    <div class="block-body">
+      <div class="how-to">
+        <strong>Как добавить:</strong> В Google Sites footer настраивается через Site → Settings → Footer
+        Или добавь обычный Text Block в конце каждой страницы
+      </div>
+      <label>Текст футера</label>
+      <div class="copy-wrap">
+        <div class="copy-box" id="footer">© 2024 Cultural Bridge Ambassadors — Ljubljana Edition
+Made by students, for students 🌿
+
+Contact: hello@culturalbridge-lj.si
+Telegram: @CulturalBridgeLJU | Instagram: @bridge.ljubljana
+
+Useful links:
+• LPP Buses: lpp.si
+• BicikeLJ: bicikelj.si
+• University of Ljubljana: uni-lj.si
+• Student Union ŠOU: sou-lj.si
+• Government services: gov.si
+
+Photo credits: Unsplash contributors (educational use).
+This is a non-commercial student project.</div>
+        <button class="copy-btn" onclick="copyText('footer')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div style="background:#1B4332;color:#fff;border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;">
+    <h2 style="color:#E9C46A;margin-bottom:0.5rem;">Итого: 16 шагов</h2>
+    <p style="color:rgba(255,255,255,0.8);margin:0;">
+      3 страницы · ~4–6 часов работы в Google Sites · Весь текст выше готов к копированию.<br>
+      Полная HTML версия всегда доступна: <a href="https://lyricus.github.io/polina_ivanchenko/" style="color:#E9C46A;">lyricus.github.io/polina_ivanchenko</a>
+    </p>
+  </div>
+</div>
+
+<script>
+function copyText(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const buttons = document.querySelectorAll('.copy-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('onclick') === `copyText('${id}')`) {
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.style.background = '#52B788';
+        setTimeout(() => { btn.textContent = orig; btn.style.background = '#1B4332'; }, 1500);
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>
