@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Ljubljana — Cultural Bridge Ambassadors</title>
+  <meta name="description" content="Discover Ljubljana's best coffee spots, must-see places, transport tips, photo gallery and video guide." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <input type="checkbox" id="nav-check" />
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐉</div>
+        <div class="nav-logo-text">Cultural Bridge<br><span>Ljubljana</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html" class="active">Explore</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="tips.html#contact" class="nav-cta">Get Help</a></li>
+      </ul>
+      <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </nav>
+
+  <!-- ══════════════ PAGE HERO ══════════════ -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Explore</span>
+      </nav>
+      <div class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">City Guide</div>
+      <h1 style="margin-top:0.5rem;">Explore <em style="color:var(--gold);font-style:normal;">Ljubljana</em></h1>
+      <p>Coffee, culture, transport and the hidden gems that make this city unforgettable.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ QUICK NAV ══════════════ -->
+  <div style="background:var(--cream-dark);border-bottom:1px solid rgba(0,0,0,0.06);">
+    <div class="container" style="padding-top:1rem;padding-bottom:1rem;">
+      <nav style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+        <a href="#coffee" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">☕ Coffee</a>
+        <a href="#places" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🗺 Places</a>
+        <a href="#transport" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🚲 Transport</a>
+        <a href="#map" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">📍 Map</a>
+        <a href="#gallery" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">📸 Gallery</a>
+        <a href="#video" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🎬 Video</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ══════════════ COFFEE ══════════════ -->
+  <section id="coffee" class="section">
+    <div class="container">
+      <div class="tag">☕ Coffee Culture</div>
+      <h2 class="mt-1">Best Coffee Spots in Ljubljana</h2>
+      <p class="section-sub">
+        Ljubljana takes its coffee seriously. These are not chains — they are local institutions
+        where students come to work, meet, and feel at home.
+      </p>
+
+      <div class="grid-3">
+
+        <!-- Črno Zrno -->
+        <div class="coffee-card">
+          <img
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80"
+            alt="Črno Zrno coffee shop"
+            class="coffee-card-img"
+            loading="lazy"
+          />
+          <div class="coffee-card-body">
+            <div class="tag">Student Favourite</div>
+            <h3>Črno Zrno</h3>
+            <p>
+              Translated as "Black Grain," this cosy specialty café near the Faculty of Arts is
+              a student institution. Superb espresso, friendly baristas who remember your order,
+              and the best croissants in the city. Free Wi-Fi, plenty of plug sockets, and a
+              relaxed vibe that welcomes long study sessions.
+            </p>
+            <div class="coffee-meta">
+              <span>📍 Rimska cesta 4</span>
+              <span>⏰ Mon–Fri 7:30–21:00</span>
+            </div>
+            <div class="coffee-meta">
+              <span>💶 Espresso ~€2.10</span>
+              <span>📶 Free Wi-Fi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOZD -->
+        <div class="coffee-card">
+          <img
+            src="https://images.unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=600&q=80"
+            alt="TOZD café bar"
+            class="coffee-card-img"
+            loading="lazy"
+          />
+          <div class="coffee-card-body">
+            <div class="tag">Cultural Spot</div>
+            <h3>TOZD</h3>
+            <p>
+              Located in the Metelkova cultural district, TOZD is more than a café — it is a
+              community hub with live music evenings, art exhibitions, and some of the most
+              interesting people in Ljubljana. Excellent natural wines alongside great coffee.
+              Come in the afternoon, stay until midnight.
+            </p>
+            <div class="coffee-meta">
+              <span>📍 Masarykova ulica 24</span>
+              <span>⏰ Tue–Sun 10:00–01:00</span>
+            </div>
+            <div class="coffee-meta">
+              <span>💶 Coffee ~€2.50</span>
+              <span>🎵 Live events weekly</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cafetino -->
+        <div class="coffee-card">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80"
+            alt="Cafetino coffee"
+            class="coffee-card-img"
+            loading="lazy"
+          />
+          <div class="coffee-card-body">
+            <div class="tag">Best Outdoor Seating</div>
+            <h3>Cafetino</h3>
+            <p>
+              Perched right on the Ljubljanica riverbank, Cafetino is the place for an
+              afternoon coffee with a view. Colourful chairs spill onto the terrace in spring
+              and summer — reserve a spot early on sunny days. Great for meeting new friends
+              and watching the city go by.
+            </p>
+            <div class="coffee-meta">
+              <span>📍 Gallusovo nabrežje 27</span>
+              <span>⏰ Daily 8:00–22:00</span>
+            </div>
+            <div class="coffee-meta">
+              <span>💶 Cappuccino ~€2.80</span>
+              <span>☀️ River terrace</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="info-box mt-4">
+        <strong>Local tip 🇸🇮</strong> — In Ljubljana, coffee culture is social. Do not rush.
+        Ordering a "kava" (coffee) and sitting for two hours is completely normal and expected.
+        Baristas will never ask you to leave. This is not a take-away city.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PLACES ══════════════ -->
+  <section id="places" class="section bg-cream">
+    <div class="container">
+      <div class="tag">🗺 Must-See Places</div>
+      <h2 class="mt-1">Ljubljana's Best Spots</h2>
+      <p class="section-sub">
+        A compact city full of character. These are the places every new resident should
+        visit in their first month.
+      </p>
+
+      <div class="places-grid">
+
+        <!-- Ljubljana Castle — featured -->
+        <div class="place-card featured">
+          <img
+            src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&q=80"
+            alt="Ljubljana Castle"
+            loading="lazy"
+          />
+          <div class="place-card-label">
+            <div class="tag" style="background:rgba(233,196,106,0.25);color:var(--gold);margin-bottom:0.5rem;">Must Visit</div>
+            <h3>Ljubljana Castle (Ljubljanski Grad)</h3>
+            <p>
+              The medieval castle crowning the hill at the heart of the city. Take the funicular
+              (€4 return, free with student card) or hike up through the forest in 15 minutes.
+              The panoramic view of the city, the Alps, and on clear days even the Adriatic coast
+              is unforgettable. Free entry to the grounds — paid entry for the tower and exhibitions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tivoli Park -->
+        <div class="place-card">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+            alt="Tivoli Park"
+            loading="lazy"
+          />
+          <div class="place-card-label">
+            <h3>Tivoli Park</h3>
+            <p>Ljubljana's green lung — running, picnics, and peace</p>
+          </div>
+        </div>
+
+        <!-- Triple Bridge -->
+        <div class="place-card">
+          <img
+            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=700&q=80"
+            alt="Triple Bridge"
+            loading="lazy"
+          />
+          <div class="place-card-label">
+            <h3>Triple Bridge (Tromostovje)</h3>
+            <p>The iconic symbol of Ljubljana — three bridges, one view</p>
+          </div>
+        </div>
+
+        <!-- Metelkova -->
+        <div class="place-card">
+          <img
+            src="https://images.unsplash.com/photo-1571886932029-0c63f9a0cb01?w=700&q=80"
+            alt="Metelkova"
+            loading="lazy"
+          />
+          <div class="place-card-label">
+            <h3>Metelkova Mesto</h3>
+            <p>Europe's most creative autonomous cultural zone — open to everyone</p>
+          </div>
+        </div>
+
+        <!-- Central Market -->
+        <div class="place-card">
+          <img
+            src="https://images.unsplash.com/photo-1506617564039-2f3b650b7010?w=700&q=80"
+            alt="Ljubljana Open Market"
+            loading="lazy"
+          />
+          <div class="place-card-label">
+            <h3>Open-Air Market (Tržnica)</h3>
+            <p>Fresh local produce by the river every morning, Mon–Sat</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="warning-box mt-4">
+        <strong>Opening hours tip ⚠️</strong> — Most Ljubljana museums are closed on Mondays.
+        Plan cultural visits for Tuesday through Sunday. The castle and parks are always open.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TRANSPORT ══════════════ -->
+  <section id="transport" class="section transport">
+    <div class="container">
+      <div class="tag">🚲 Getting Around</div>
+      <h2 class="mt-1">Transport in Ljubljana</h2>
+      <p class="section-sub">
+        Good news: Ljubljana is tiny. Most things are walkable.
+        Here is what you need to know about the rest.
+      </p>
+
+      <div class="transport-items">
+
+        <div class="transport-item">
+          <div class="transport-icon">🚌</div>
+          <h3>Bus (LPP)</h3>
+          <p>
+            Ljubljana's city bus network covers the whole city. All buses are modern and
+            air-conditioned. You <strong>cannot pay with cash</strong> on board — you must
+            use an Urbana card or the LPP mobile app.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Single ride: €1.30 with Urbana</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Day pass: €3.50</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Monthly student pass: ~€23</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Real-time: lpp.si or Moovit app</li>
+          </ul>
+        </div>
+
+        <div class="transport-item">
+          <div class="transport-icon">💳</div>
+          <h3>Urbana Card</h3>
+          <p>
+            The rechargeable smart card used for all buses, the funicular, and some parking.
+            Get yours at any <strong>Urbanija kiosk</strong> (in LPP bus shelters) or at
+            the LPP customer centre at Slovenska 56. The card itself costs €2.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Buy at Urbanija kiosks citywide</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Top up: kiosks, app, or online</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Register your card to protect balance</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Student discount requires enrolment proof</li>
+          </ul>
+        </div>
+
+        <div class="transport-item">
+          <div class="transport-icon">🚲</div>
+          <h3>BicikeLJ Bikes</h3>
+          <p>
+            The city's public bike-sharing system with 36 stations across the city centre.
+            The first hour of every ride is <strong>free</strong>. Perfect for short trips —
+            from the train station to university, from the market to Tivoli Park.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ First hour: FREE every ride</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Annual subscription: €9/year</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Register at bicikelj.si</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Helmets not provided — bring your own</li>
+          </ul>
+        </div>
+
+        <div class="transport-item">
+          <div class="transport-icon">🚶</div>
+          <h3>Walking</h3>
+          <p>
+            Ljubljana's old town is entirely <strong>car-free</strong>. Most students walk
+            everywhere in the centre. From the central train station to the castle hill is
+            only 15 minutes on foot along some of the most beautiful streets in Central Europe.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Old town: fully pedestrianised</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ River promenade: scenic 30-min walk</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Download Maps.me for offline navigation</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ City centre is flat and very walkable</li>
+          </ul>
+        </div>
+
+        <div class="transport-item">
+          <div class="transport-icon">🚆</div>
+          <h3>Trains & Intercity</h3>
+          <p>
+            Ljubljana's central train station (Železniška postaja) connects to all major
+            Slovenian cities and neighbouring countries. For day trips: Bled (1h), Piran (2h),
+            Maribor (2h). Book at potniski.sz.si for the best student prices.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Student 50% discount with ISIC or enrolment</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Intercity bus: Nomago, FlixBus</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Book online to save 20–30%</li>
+          </ul>
+        </div>
+
+        <div class="transport-item">
+          <div class="transport-icon">🚕</div>
+          <h3>Taxis & Rideshare</h3>
+          <p>
+            Use the <strong>Hopin app</strong> (local) or Bolt for fair-priced taxis.
+            Avoid hailing unmarked taxis at the station — prices can be 3× higher.
+            Hopin averages €5–8 for most city-centre trips.
+          </p>
+          <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Hopin: cheapest and most reliable</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Bolt: also available, good late at night</li>
+            <li style="font-size:0.85rem;color:var(--text-mid);">→ Airport taxi: book in advance (~€28 fixed)</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ MAP ══════════════ -->
+  <section id="map" class="section">
+    <div class="container">
+      <div class="tag">📍 Interactive Map</div>
+      <h2 class="mt-1">Find everything on the map</h2>
+      <p class="section-sub">
+        All key spots from this guide — coffee shops, sights, transport hubs and student
+        services — pinned on one map.
+      </p>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11076.07946484424!2d14.496459474316406!3d46.05126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477aa1fb3e83ac57%3A0x2e20c5d7cd082a3b!2sLjubljana%2C%20Slovenia!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map of Ljubljana"
+        ></iframe>
+      </div>
+      <div class="info-box" style="margin-top:1.25rem;">
+        <strong>Tip:</strong> Open this map on your phone and search for
+        "Črno Zrno Ljubljana," "Ljubljana Castle," or "BicikeLJ" to get live directions.
+        Google Maps works great in Slovenia — save locations offline before leaving Wi-Fi.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ GALLERY ══════════════ -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);display:block;text-align:center;">Photo Gallery</div>
+      <h2 class="section-title mt-1" style="color:#fff;">Ljubljana in pictures</h2>
+      <p class="section-sub">Photographed by students living here. Rule of thirds, natural light, real moments.</p>
+
+      <div class="gallery-track-wrap">
+        <div class="gallery-track">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=75" alt="Ljubljanica at sunset" loading="lazy" />
+            <div class="gallery-item-caption">Ljubljanica River — golden hour</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&q=75" alt="Ljubljana Castle" loading="lazy" />
+            <div class="gallery-item-caption">Ljubljana Castle from Prešeren Square</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=700&q=75" alt="Triple Bridge" loading="lazy" />
+            <div class="gallery-item-caption">Tromostovje — the Triple Bridge</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75" alt="Tivoli Park" loading="lazy" />
+            <div class="gallery-item-caption">Tivoli Park — springtime</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1571886932029-0c63f9a0cb01?w=700&q=75" alt="Open market" loading="lazy" />
+            <div class="gallery-item-caption">Saturday at the open market</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=75" alt="Coffee culture" loading="lazy" />
+            <div class="gallery-item-caption">Morning coffee — Ljubljana style</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=700&q=75" alt="TOZD café" loading="lazy" />
+            <div class="gallery-item-caption">TOZD — Metelkova district</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=75" alt="Specialty coffee" loading="lazy" />
+            <div class="gallery-item-caption">Specialty coffee at Črno Zrno</div>
+          </div>
+        </div>
+      </div>
+      <p class="gallery-scroll-hint">← Swipe or drag to see more →</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIDEO ══════════════ -->
+  <section id="video" class="section video-section">
+    <div class="container">
+      <div class="video-wrap">
+        <div>
+          <div class="tag">🎬 Video Guide</div>
+          <h2 class="mt-1">A Day in Ljubljana</h2>
+          <p>
+            Follow a student ambassador through a typical Ljubljana day — from morning
+            coffee on the riverside to an evening at Metelkova. This 8-minute guide covers
+            the places, the vibe, and the small things that make this city special.
+          </p>
+          <p>
+            Shot and edited entirely by Cultural Bridge student ambassadors. No tourism
+            board, no script — just an honest look at life here.
+          </p>
+          <a href="https://www.youtube.com/results?search_query=Ljubljana+city+guide" target="_blank" rel="noopener" class="btn btn-green mt-2">
+            Watch on YouTube →
+          </a>
+        </div>
+        <div class="video-embed">
+          <!--
+            Replace the src below with your own YouTube embed URL:
+            Format: https://www.youtube.com/embed/VIDEO_ID
+            Example: https://www.youtube.com/embed/dQw4w9WgXcQ
+          -->
+          <iframe
+            src="https://www.youtube.com/embed/FHTSjLKOsEM"
+            title="Ljubljana City Guide"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Cultural Bridge<br><span>Ljubljana Edition</span></h3>
+          <p>
+            A student initiative connecting Ukrainian newcomers with the people and
+            places of Ljubljana, Slovenia. Made with care by young people who want you
+            to feel at home.
+          </p>
+          <div class="social-links" style="justify-content:flex-start;margin-top:1.25rem;">
+            <a href="#" class="social-link instagram" style="padding:0.5rem 1rem;font-size:0.82rem;">📸 Instagram</a>
+            <a href="#" class="social-link telegram" style="padding:0.5rem 1rem;font-size:0.82rem;">✈️ Telegram</a>
+            <a href="#" class="social-link tiktok" style="padding:0.5rem 1rem;font-size:0.82rem;">🎵 TikTok</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#coffee">Best Coffee Spots</a></li>
+            <li><a href="#places">Must-See Places</a></li>
+            <li><a href="#transport">Getting Around</a></li>
+            <li><a href="#gallery">Photo Gallery</a></li>
+            <li><a href="#video">Video Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tips</h4>
+          <ul>
+            <li><a href="tips.html#admin">Documents & Admin</a></li>
+            <li><a href="tips.html#language">Slovenian Basics</a></li>
+            <li><a href="tips.html#health">Healthcare</a></li>
+            <li><a href="tips.html#student">Student Services</a></li>
+            <li><a href="tips.html#emergency">Emergency Contacts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="https://www.lpp.si" target="_blank" rel="noopener">LPP Bus Schedule</a></li>
+            <li><a href="https://www.bicikelj.si" target="_blank" rel="noopener">BicikeLJ Bikes</a></li>
+            <li><a href="https://www.uni-lj.si" target="_blank" rel="noopener">University of Ljubljana</a></li>
+            <li><a href="https://www.gov.si" target="_blank" rel="noopener">Government Services</a></li>
+            <li><a href="tips.html#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Cultural Bridge Ambassadors — Ljubljana Edition</span>
+        <span>Made by students, for students 🌿</span>
+      </div>
+      <p class="footer-credits">
+        Photo credits: Unsplash contributors — photos used for educational purposes.
+        Map data: © Google Maps. This is a non-commercial student project.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

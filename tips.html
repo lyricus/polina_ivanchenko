@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practical Tips — Cultural Bridge Ambassadors Ljubljana</title>
+  <meta name="description" content="Everything a Ukrainian newcomer needs to know about living in Ljubljana: documents, healthcare, language basics, student services, and emergency contacts." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Page-specific extras */
+    .steps {
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    .step-num {
+      counter-increment: step;
+      content: counter(step);
+      min-width: 36px; height: 36px;
+      background: var(--green-mid);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .step-body h4 { margin-bottom: 0.25rem; }
+    .step-body p { font-size: 0.88rem; margin: 0; }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+    .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
+    .contact-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .contact-card h4 { margin-bottom: 0.2rem; }
+    .contact-card p { font-size: 0.88rem; margin: 0; }
+    .contact-card a { color: var(--green-mid); font-weight: 600; }
+    .contact-card a:hover { color: var(--green-dark); }
+
+    .phrase-emoji { font-size: 1.2rem; }
+
+    .highlight-strip {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+    .highlight-strip h2 { color: var(--white); margin-bottom: 0.75rem; }
+    .highlight-strip p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <input type="checkbox" id="nav-check" />
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐉</div>
+        <div class="nav-logo-text">Cultural Bridge<br><span>Ljubljana</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="tips.html" class="active">Tips</a></li>
+        <li><a href="#contact" class="nav-cta">Get Help</a></li>
+      </ul>
+      <label for="nav-check" class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </nav>
+
+  <!-- ══════════════ PAGE HERO ══════════════ -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Tips</span>
+      </nav>
+      <div class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">Practical Guide</div>
+      <h1 style="margin-top:0.5rem;">Practical <em style="color:var(--gold);font-style:normal;">Tips</em></h1>
+      <p>
+        Everything you need to settle in — documents, healthcare, language basics,
+        student services, and who to call in an emergency.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════ QUICK JUMP ══════════════ -->
+  <div style="background:var(--cream-dark);border-bottom:1px solid rgba(0,0,0,0.06);">
+    <div class="container" style="padding-top:1rem;padding-bottom:1rem;">
+      <nav style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+        <a href="#first-week" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">📋 First Week</a>
+        <a href="#admin" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🏛 Admin</a>
+        <a href="#language" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🗣 Language</a>
+        <a href="#health" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🏥 Health</a>
+        <a href="#student" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🎓 Student</a>
+        <a href="#emergency" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">🚨 Emergency</a>
+        <a href="#form" class="btn btn-outline" style="color:var(--green-dark);border-color:var(--green-mid);padding:0.5rem 1.1rem;font-size:0.85rem;">✍️ Ask Us</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ══════════════ FIRST WEEK ══════════════ -->
+  <section id="first-week" class="section">
+    <div class="container">
+      <div class="tag">📋 Priority Checklist</div>
+      <h2 class="mt-1">Your first week in Ljubljana</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Do these five things in your first seven days. Everything else can wait.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Register your temporary residence</h4>
+            <p>
+              Go to the <strong>Administrative Unit (Upravna enota Ljubljana)</strong> at
+              Tobačna ulica 5 with your passport and proof of address (rental contract or
+              hotel booking). This registers you as a legal resident. Required for healthcare,
+              banking, and most official processes. Opens Mon–Fri 8:00–13:00.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Get a Slovenian SIM card</h4>
+            <p>
+              <strong>Telekom Slovenia</strong> (Trg republike 3) and <strong>A1</strong>
+              (Nazorjeva 2) both sell prepaid SIMs with good data plans. Bring your passport.
+              A prepaid SIM with 15 GB of data costs around €15/month. You need this for the
+              LPP bus app, BicikeLJ bikes, and most digital services.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Open a bank account</h4>
+            <p>
+              <strong>Delavska hranilnica</strong> and <strong>N26 / Revolut</strong> (app-based)
+              are easiest for newcomers. N26 and Revolut require no Slovenian address.
+              For a local account, NLB and SKB banks are student-friendly — bring your
+              passport, residence registration, and enrolment certificate.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Choose a personal physician (osebni zdravnik)</h4>
+            <p>
+              You can see a doctor without one, but having a registered personal physician
+              means faster appointments and lower costs. Find the list of available doctors
+              at <strong>zzzs.si</strong>. Call or visit the practice to register — bring
+              your health insurance card (or temporary certificate) and residence proof.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Get your student card and Urbana card</h4>
+            <p>
+              Your university will issue you a student card — activate it immediately as it
+              gives you access to the student dining card (<em>subvencija za prehrano</em>)
+              which provides subsidised meals at €3–4 per meal at over 40 restaurants.
+              Get your Urbana bus card at any LPP kiosk (€2 for the card).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ADMIN ══════════════ -->
+  <section id="admin" class="section bg-cream">
+    <div class="container">
+      <div class="tag">🏛 Documents & Admin</div>
+      <h2 class="mt-1">Documents you will need</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Always carry copies of these. Originals in your bag, photos on your phone.
+      </p>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">🛂</div>
+            <h3>For Ukrainian citizens (TZ status)</h3>
+          </div>
+          <ul>
+            <li>Temporary protection certificate (Začasna zaščita) — the most important document</li>
+            <li>Ukrainian passport (biometric preferred but not required)</li>
+            <li>Proof of accommodation (rental contract / invitation letter)</li>
+            <li>Apply for TZ status within 3 days of arrival at Policijska uprava Ljubljana</li>
+            <li>Status valid 1 year, renewable — gives you full rights to work, study, and access healthcare</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">🏫</div>
+            <h3>University enrolment documents</h3>
+          </div>
+          <ul>
+            <li>Ukrainian diploma / school leaving certificate (apostilled or notarised)</li>
+            <li>Certified translation into Slovenian or English</li>
+            <li>Language certificate (B2 Slovenian or B2 English depending on programme)</li>
+            <li>Transcript of records from your previous institution</li>
+            <li>Contact ENIC-NARIC Slovenia (uznanje.si) for credential recognition — it takes 1–3 months</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">💰</div>
+            <h3>Financial support for Ukrainian students</h3>
+          </div>
+          <ul>
+            <li>Slovenian government waives tuition fees for Ukrainian students under TZ protection</li>
+            <li>Monthly social assistance: up to €402/month for single adults (apply at CSD Ljubljana)</li>
+            <li>Student subsidised meals: ~€3.50/meal at participating restaurants</li>
+            <li>UNHCR emergency fund: contact UNHCR Ljubljana for one-time assistance</li>
+            <li>Caritas Slovenia: food packages, clothing vouchers, counselling</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">🏠</div>
+            <h3>Housing & accommodation</h3>
+          </div>
+          <ul>
+            <li>Student dormitories (studentski domovi): apply at stud-dom.si — very limited spots</li>
+            <li>Private rooms: njuskalo.si, nepremicnine.net, Facebook groups "Stanovanje Ljubljana"</li>
+            <li>Average room rent: €350–550/month including bills</li>
+            <li>Rental contracts must be registered — ask your landlord, it is their legal obligation</li>
+            <li>Emergency shelter: contact Slovenska filantropija (filantropija.si)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <strong>Important ⚠️</strong> — Always make photocopies AND phone photos of every
+        official document. Store them in a secure cloud (Google Drive, iCloud) so you can
+        access them even if your bag is lost or stolen.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ LANGUAGE ══════════════ -->
+  <section id="language" class="section">
+    <div class="container">
+      <div class="tag">🗣 Language</div>
+      <h2 class="mt-1">Essential Slovenian phrases</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Most Slovenians under 40 speak good English. But learning a few words will earn you
+        a genuine smile — and sometimes a free coffee.
+      </p>
+
+      <div style="overflow-x:auto;">
+        <table class="lang-table">
+          <thead>
+            <tr>
+              <th>Slovenian</th>
+              <th>Ukrainian / Meaning</th>
+              <th>Pronunciation tip</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zdravo / Živjo</td>
+              <td>Привіт / Hello (informal)</td>
+              <td>"ZDRA-vo" / "ZHEE-vyo"</td>
+            </tr>
+            <tr>
+              <td>Dober dan</td>
+              <td>Доброго дня / Good day</td>
+              <td>"DOH-ber dahn"</td>
+            </tr>
+            <tr>
+              <td>Hvala</td>
+              <td>Дякую / Thank you</td>
+              <td>"HVAH-lah" — very common, use it always</td>
+            </tr>
+            <tr>
+              <td>Prosim</td>
+              <td>Будь ласка / Please / You're welcome</td>
+              <td>"PROH-seem" — also means "yes please" and "here you go"</td>
+            </tr>
+            <tr>
+              <td>Oprostite</td>
+              <td>Вибачте / Excuse me / Sorry</td>
+              <td>"oh-PRO-stee-teh"</td>
+            </tr>
+            <tr>
+              <td>Koliko stane?</td>
+              <td>Скільки коштує? / How much is it?</td>
+              <td>"KOH-lee-koh STAH-neh"</td>
+            </tr>
+            <tr>
+              <td>Kje je ...?</td>
+              <td>Де знаходиться ...? / Where is ...?</td>
+              <td>"kyeh yeh" — point at your phone map if unsure</td>
+            </tr>
+            <tr>
+              <td>Ne razumem</td>
+              <td>Я не розумію / I don't understand</td>
+              <td>"neh rah-ZOO-mem"</td>
+            </tr>
+            <tr>
+              <td>Govorite angleško?</td>
+              <td>Ви говорите англійською? / Do you speak English?</td>
+              <td>"go-VOH-ree-teh AHN-glesh-koh"</td>
+            </tr>
+            <tr>
+              <td>Nasvidenje</td>
+              <td>До побачення / Goodbye</td>
+              <td>"nahs-VEE-den-yeh"</td>
+            </tr>
+            <tr>
+              <td>Ena kava, prosim</td>
+              <td>Одну каву, будь ласка / One coffee please</td>
+              <td>"EH-nah KAH-vah PRO-seem" — the most important sentence</td>
+            </tr>
+            <tr>
+              <td>Živeli!</td>
+              <td>Будьмо! / Cheers!</td>
+              <td>"ZHEE-ve-lee" — always look people in the eyes when toasting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box mt-4">
+        <strong>Fun fact 🇸🇮</strong> — Slovenian and Ukrainian are both Slavic languages, so
+        many words look similar written down! "Dom" (home), "voda" (water), "hleb/kruh" (bread),
+        "mleko" (milk) — you already know more Slovenian than you think.
+      </div>
+
+      <div class="info-box">
+        <strong>Where to learn more:</strong> Free Slovenian classes for newcomers are offered by
+        <strong>ISA (Institute for Slovenian Language)</strong> and various NGOs including
+        Slovenska filantropija and Karitas. Ask at your university international office.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ HEALTH ══════════════ -->
+  <section id="health" class="section bg-cream">
+    <div class="container">
+      <div class="tag">🏥 Healthcare</div>
+      <h2 class="mt-1">Health & medical care</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Slovenia has an excellent public healthcare system. Under temporary protection (TZ),
+        you have the same rights as Slovenian citizens.
+      </p>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">💊</div>
+            <h3>General healthcare</h3>
+          </div>
+          <ul>
+            <li>Register with a personal physician (osebni zdravnik) within your first month</li>
+            <li>For urgent non-emergency care: go to a "nujni ambulanta" without appointment</li>
+            <li>Nearest 24h urgent care: Urgentni center Ljubljana, Zaloška 2</li>
+            <li>Prescriptions (recepti) from your doctor can be filled at any pharmacy (lekarna)</li>
+            <li>ZZZS health card — apply for yours at ZZZS office, Miklošičeva 24</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">🧠</div>
+            <h3>Mental health & wellbeing</h3>
+          </div>
+          <ul>
+            <li>Moving to a new country is hard. Seeking support is brave, not weak.</li>
+            <li>Free psychological counselling for Ukrainians: Karitas (karitas.si), info line 031 700 100</li>
+            <li>University of Ljubljana student counselling: svetovalnica.uni-lj.si</li>
+            <li>24h crisis line (in Slovenian/English): 116 123 (Zaupni telefon Samarijan)</li>
+            <li>Online Ukrainian-language therapy: uahelp.me (free for displaced Ukrainians)</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">🏋️</div>
+            <h3>Sports & physical activity</h3>
+          </div>
+          <ul>
+            <li>Student sports card (Športna izkaznica) gives discounted gym access city-wide</li>
+            <li>Free outdoor gym equipment in Tivoli Park — open 24/7</li>
+            <li>University sports (ŠOU): basketball, volleyball, swimming — very affordable</li>
+            <li>Cycling and running paths connect all major parks — completely free</li>
+            <li>BTC City has a large free ice-skating rink in winter</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-card-header">
+            <div class="tip-icon">💉</div>
+            <h3>Vaccinations & documentation</h3>
+          </div>
+          <ul>
+            <li>If you have Ukrainian vaccination records, bring them — they are usually recognised</li>
+            <li>COVID-19 vaccination is no longer required for entry or services in Slovenia</li>
+            <li>If records are lost: NIJZ (national health institute) can issue a vaccination plan</li>
+            <li>Flu vaccine is free every October at your personal physician's practice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ STUDENT SERVICES ══════════════ -->
+  <section id="student" class="section">
+    <div class="container">
+      <div class="tag">🎓 Student Life</div>
+      <h2 class="mt-1">Student services & organisations</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Ljubljana is a student city. These organisations exist specifically to help you.
+      </p>
+
+      <div class="grid-3">
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🎓</div>
+            <h3>ŠOU — Student Organisation</h3>
+            <p style="font-size:0.88rem;">
+              The main student union. Manages student dining cards (subvencija), organises
+              cultural events, and provides legal and social support. Their office is at
+              Kersnikova 4, Ljubljana. Website: sou-lj.si
+            </p>
+            <a href="https://www.sou-lj.si" target="_blank" rel="noopener" class="btn btn-green mt-3" style="font-size:0.82rem;padding:0.5rem 1rem;">Visit ŠOU →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
+            <h3>International Student Club</h3>
+            <p style="font-size:0.88rem;">
+              AEGEE Ljubljana and ESN Slovenia organise regular events specifically for
+              international students: language cafés, city tours, weekend trips, and
+              intercultural evenings. A great way to make local friends fast.
+            </p>
+            <a href="https://www.esnslovenia.si" target="_blank" rel="noopener" class="btn btn-green mt-3" style="font-size:0.82rem;padding:0.5rem 1rem;">ESN Slovenia →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🍽️</div>
+            <h3>Student Dining Card</h3>
+            <p style="font-size:0.88rem;">
+              With a valid student card you get a meal coupon worth €3.50 per meal at 40+
+              partner restaurants citywide. Activate your card at ŠOU and load coupons via
+              the eŠtudentServis app. This will save you hundreds of euros per semester.
+            </p>
+            <a href="https://www.studentski-servis.com" target="_blank" rel="noopener" class="btn btn-green mt-3" style="font-size:0.82rem;padding:0.5rem 1rem;">eŠtudentServis →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">📚</div>
+            <h3>City & University Libraries</h3>
+            <p style="font-size:0.88rem;">
+              <strong>NUK</strong> (National and University Library) is free with student ID —
+              one of the most beautiful buildings in Ljubljana. Great study spaces, fast Wi-Fi,
+              and access to international academic databases. Also great for a quiet afternoon.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
+            <h3>Cultural Bridge Programme</h3>
+            <p style="font-size:0.88rem;">
+              That is us! Our programme pairs Ukrainian students with local Slovenian
+              "ambassadors" for the first semester — language practice, city tours, and
+              honest advice about student life. Fill in the form below to get matched.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="font-size:2rem;margin-bottom:0.75rem;">💼</div>
+            <h3>Part-time Work Rights</h3>
+            <p style="font-size:0.88rem;">
+              Under TZ protection, you have the right to work in Slovenia without a special
+              permit. Student jobs (študentsko delo) via eŠtudentServis are tax-advantaged.
+              Average hourly rate: €8–12. Popular sectors: hospitality, retail, tutoring.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EMERGENCY ══════════════ -->
+  <section id="emergency" class="section bg-cream">
+    <div class="container">
+      <div class="tag" style="background:#FFF0F0;color:#C53030;">🚨 Emergency</div>
+      <h2 class="mt-1">Emergency contacts</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Save these numbers in your phone today. You will hopefully never need them —
+        but having them ready matters.
+      </p>
+
+      <div class="grid-2">
+        <div class="contact-card" style="border-left:4px solid #C53030;">
+          <div class="contact-icon">🚑</div>
+          <div>
+            <h4>Medical Emergency</h4>
+            <p><a href="tel:112">112</a> — European emergency number (ambulance, fire, police)</p>
+            <p style="margin-top:0.4rem;">24h Emergency Centre: <a href="tel:+38612522750">+386 1 252 27 50</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card" style="border-left:4px solid #2B6CB0;">
+          <div class="contact-icon">🚔</div>
+          <div>
+            <h4>Police</h4>
+            <p><a href="tel:113">113</a> — Police emergency</p>
+            <p style="margin-top:0.4rem;">Ljubljana Police HQ: <a href="tel:+38614787100">+386 1 478 71 00</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card" style="border-left:4px solid #276749;">
+          <div class="contact-icon">🏛</div>
+          <div>
+            <h4>Ukrainian Embassy in Slovenia</h4>
+            <p>Dunajska cesta 100, 1000 Ljubljana</p>
+            <p style="margin-top:0.4rem;">Phone: <a href="tel:+38612808595">+386 1 280 85 95</a></p>
+            <p>Email: <a href="mailto:emb_si@mfa.gov.ua">emb_si@mfa.gov.ua</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card" style="border-left:4px solid #744210;">
+          <div class="contact-icon">🤝</div>
+          <div>
+            <h4>Refugee & Migrant Support</h4>
+            <p>Slovenska filantropija: <a href="tel:+38614391170">+386 1 439 11 70</a></p>
+            <p style="margin-top:0.4rem;">UNHCR Slovenia: <a href="tel:+38615873580">+386 1 587 35 80</a></p>
+            <p>Karitas: <a href="tel:031700100">031 700 100</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card" style="border-left:4px solid #553C9A;">
+          <div class="contact-icon">🧠</div>
+          <div>
+            <h4>Crisis & Mental Health</h4>
+            <p>24h Samarijan crisis line: <a href="tel:116123">116 123</a> (free)</p>
+            <p style="margin-top:0.4rem;">SOS violence helpline: <a href="tel:080112233">080 11 22 33</a> (free)</p>
+          </div>
+        </div>
+
+        <div class="contact-card" style="border-left:4px solid #2C7A7B;">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Contact Cultural Bridge</h4>
+            <p>Email: <a href="mailto:hello@culturalbridge-lj.si">hello@culturalbridge-lj.si</a></p>
+            <p style="margin-top:0.4rem;">Telegram: <a href="#">@CulturalBridgeLJU</a></p>
+            <p>Instagram: <a href="#">@bridge.ljubljana</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FORM ══════════════ -->
+  <section id="form" class="section form-section">
+    <div class="container">
+      <div class="tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);display:block;text-align:center;">Ask a Question</div>
+      <h2 class="section-title mt-1">Was this helpful?</h2>
+      <p class="section-sub">
+        Got a question we did not answer? Want to share your experience in Ljubljana?
+        A student ambassador reads every submission and responds within 24 hours.
+      </p>
+
+      <div style="max-width:720px;margin:0 auto;">
+        <div class="form-embed">
+          <!--
+            INSTRUCTIONS: Replace this iframe src with your actual Google Form embed URL.
+            1. Create a Google Form at forms.google.com
+            2. Click Send → Embed → Copy the iframe src URL
+            3. Paste it here as the src attribute value
+
+            Suggested form questions:
+            - Your name (short answer)
+            - Your email (short answer)
+            - Are you a: Ukrainian student / Slovenian student / Other (multiple choice)
+            - Your question or message (paragraph)
+            - How did you find this guide? (multiple choice)
+            - Would you like to join the Cultural Bridge programme? (yes/no)
+          -->
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSf_REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
+            title="Cultural Bridge feedback form"
+          >
+            Loading form...
+          </iframe>
+        </div>
+
+        <!-- Fallback message if form doesn't load -->
+        <div class="info-box mt-3">
+          <strong>Form not loading?</strong> No problem — send us an email directly at
+          <a href="mailto:hello@culturalbridge-lj.si" style="color:var(--green-mid);font-weight:600;">hello@culturalbridge-lj.si</a>
+          or reach us on Telegram <a href="#" style="color:var(--green-mid);font-weight:600;">@CulturalBridgeLJU</a>.
+          We respond in Ukrainian, English, and Slovenian.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SOCIAL ══════════════ -->
+  <section id="contact" class="highlight-strip">
+    <div class="container">
+      <h2>Follow us & stay connected</h2>
+      <p>
+        New guides, city events, and student tips published weekly.
+        The quickest way to reach us is Telegram.
+      </p>
+      <div class="social-links">
+        <a href="#" class="social-link instagram">📸 &nbsp; Instagram</a>
+        <a href="#" class="social-link tiktok">🎵 &nbsp; TikTok</a>
+        <a href="#" class="social-link telegram">✈️ &nbsp; Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Cultural Bridge<br><span>Ljubljana Edition</span></h3>
+          <p>
+            A student initiative connecting Ukrainian newcomers with the people and
+            places of Ljubljana, Slovenia. Made with care by young people who want you
+            to feel at home.
+          </p>
+          <div class="social-links" style="justify-content:flex-start;margin-top:1.25rem;">
+            <a href="#" class="social-link instagram" style="padding:0.5rem 1rem;font-size:0.82rem;">📸 Instagram</a>
+            <a href="#" class="social-link telegram" style="padding:0.5rem 1rem;font-size:0.82rem;">✈️ Telegram</a>
+            <a href="#" class="social-link tiktok" style="padding:0.5rem 1rem;font-size:0.82rem;">🎵 TikTok</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="explore.html#coffee">Best Coffee Spots</a></li>
+            <li><a href="explore.html#places">Must-See Places</a></li>
+            <li><a href="explore.html#transport">Getting Around</a></li>
+            <li><a href="explore.html#gallery">Photo Gallery</a></li>
+            <li><a href="explore.html#video">Video Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tips</h4>
+          <ul>
+            <li><a href="#first-week">First Week Checklist</a></li>
+            <li><a href="#admin">Documents & Admin</a></li>
+            <li><a href="#language">Slovenian Basics</a></li>
+            <li><a href="#health">Healthcare</a></li>
+            <li><a href="#emergency">Emergency Contacts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="https://www.lpp.si" target="_blank" rel="noopener">LPP Bus Schedule</a></li>
+            <li><a href="https://www.bicikelj.si" target="_blank" rel="noopener">BicikeLJ Bikes</a></li>
+            <li><a href="https://www.uni-lj.si" target="_blank" rel="noopener">University of Ljubljana</a></li>
+            <li><a href="https://www.sou-lj.si" target="_blank" rel="noopener">ŠOU Student Union</a></li>
+            <li><a href="https://www.gov.si" target="_blank" rel="noopener">Government Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Cultural Bridge Ambassadors — Ljubljana Edition</span>
+        <span>Made by students, for students 🌿</span>
+      </div>
+      <p class="footer-credits">
+        This is a non-commercial student project. Information provided as a guide only —
+        always verify official requirements with relevant authorities.
+        Photo credits: Unsplash contributors (educational use).
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
